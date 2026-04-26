@@ -1,0 +1,29 @@
+{
+  "scopeName": "source.cse105",
+  "patterns": [{ "include": "#expression" }],
+  "repository": {
+    "expression": {
+      "patterns": [  { "include": "#comment" }
+		    ,{ "include": "#keyword" }
+		    ,{ "include": "#string" }
+		    ,{ "include": "#invalid" }
+		  ]
+    },
+    "comment": {
+      "match": "(^((Claim)|(Lemma)|(Theorem)|(WTS)):(.*|\r?\n)$)|(^((Proof)|(Pf)):$)|(^((--EOP)|(--End of Proof))$)",
+      "name": "comment"
+    },
+    "keyword": {
+      "match": "\\b(([DN]|(GN))FA|Regex|CFG|(R|(NR)|(CF)|(NCF))L)\\b",
+      "name": "keyword"
+    },
+    "string": {
+      "match": "\\[<[01]*>/[E01] -> <[01]*>\\]",
+      "name": "string"
+    },
+    "invalid": {
+      "match": "\\b0b(0|1(10)*(01|111)|1(10)*(00|110)(1|010|00(10)*(00|110))*(011|00(10)*(01|111)))*\\b",
+      "name": "invalid"
+    }
+  }
+}
